@@ -2,7 +2,6 @@ package app
 
 import (
 	"encoding/json"
-	"encoding/xml"
 	"net/http"
 )
 
@@ -21,9 +20,15 @@ func getAllCourses(w http.ResponseWriter, r *http.Request) {
 	courses := []Courses{
 		{"flutter", "https://google.com"},
 		{"Hadoop", "https:udemy.com"},
+		{"Hadoop", "https:udemy.com"},
+		{"Hadoop", "https:udemy.com"},
+		{"Hadoop", "https:udemy.com"},
+		{"Hadoop", "https:udemy.com"},
+		{"Hadoop", "https:udemy.com"},
+		{"Hadoop", "https:udemy.com"},
 	}
-	w.Header().Add("Content-Type", "application/xml")
-	xml.NewEncoder(w).Encode(courses)
+	w.Header().Add("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(courses)
 }
 func getAllCustomers(w http.ResponseWriter, r *http.Request) {
 	customers := []Customer{
