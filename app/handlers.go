@@ -1,6 +1,7 @@
 package app
 
 import (
+	"Banking_System/services"
 	"encoding/json"
 	"net/http"
 )
@@ -14,6 +15,9 @@ type Customer struct {
 	Name    string `json:"name"`
 	City    string `json:"city"`
 	Zipcode string `json:"zipcode"`
+}
+type CustomerHandler struct {
+	service services.CustomerService
 }
 
 func getAllCourses(w http.ResponseWriter, r *http.Request) {
@@ -30,11 +34,8 @@ func getAllCourses(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(courses)
 }
-func getAllCustomers(w http.ResponseWriter, r *http.Request) {
-	customers := []Customer{
-		{"Ojas Gupta", "Jammu", "180012"},
-		{"Ritu Gupta", "Jammu", "180013"},
-	}
+func (ch *CustomerHandler) getAllCustomers(w http.ResponseWriter, r *http.Request) {
+	customers, _ := ch.service.GetAllCustomers()
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(customers)
 
