@@ -24,6 +24,7 @@ func Start() {
 		service: services.NewCustomerService(domain.NewCustomerRepositoryStub()),
 	}
 	router.HandleFunc("/customers", ch.getAllCustomers).Methods(http.MethodGet)
+
 	// starting the server.
 	// listen and serve function returns an error so should always be wrapped with log.fatal
 	router.HandleFunc("/courses", getAllCourses).Methods(http.MethodGet)

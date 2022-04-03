@@ -16,7 +16,7 @@ type Customer struct {
 	City    string `json:"city"`
 	Zipcode string `json:"zipcode"`
 }
-type CustomerHandler struct {
+type CustomerHandler struct { // rest handler
 	service services.CustomerService
 }
 

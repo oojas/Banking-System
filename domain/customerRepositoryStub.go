@@ -7,7 +7,7 @@ type CustomerRepositoryStub struct { // Stub Adaptor
 func (s CustomerRepositoryStub) FindAll() ([]Customer, error) { // This will fetch us the list of the customers.
 	return s.customers, nil
 }
-func NewCustomerRepositoryStub() CustomerRepository {
+func NewCustomerRepositoryStub() CustomerRepositoryStub {
 	customers := []Customer{
 		{101, "Ojas", 22, "180012", "1", "Jammu"},
 		{102, "Ritu", 49, "180012", "1", "Jammu"},
