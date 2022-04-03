@@ -7,5 +7,6 @@ import (
 
 func main() {
 	godotenv.Load()
+
 	app.Start()
 }

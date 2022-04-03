@@ -14,7 +14,10 @@ import (
 
 func getPort() string {
 	port := os.Getenv("PORT")
-	return port
+	if port != "" {
+		return ":" + port
+	}
+	return ":8000"
 }
 
 func Start() {
