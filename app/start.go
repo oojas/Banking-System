@@ -5,12 +5,20 @@ import (
 	"Banking_System/services"
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
+	"os"
+
+	"github.com/gorilla/mux"
 )
 
+func getPort() string {
+	port := os.Getenv("PORT")
+	return port
+}
+
 func Start() {
+	p := getPort()
 	//mux := http.NewServeMux() // New Multiplexer created which can be used to call handler functions.
 	router := mux.NewRouter()
 	router.HandleFunc("/greet", func(w http.ResponseWriter, r *http.Request) {
@@ -29,7 +37,7 @@ func Start() {
 	// listen and serve function returns an error so should always be wrapped with log.fatal
 	router.HandleFunc("/courses", getAllCourses).Methods(http.MethodGet)
 	router.HandleFunc("/customers", createCustomer).Methods(http.MethodPost) // this is a post request where we are creating a new customer.
-	log.Fatal(http.ListenAndServe("localhost:8000", router))
+	log.Fatal(http.ListenAndServe(p, router))
 }
 
 func createCustomer(w http.ResponseWriter, r *http.Request) {
