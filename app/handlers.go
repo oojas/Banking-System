@@ -24,9 +24,9 @@ type CustomerHandler struct { // rest handler
 
 func getAllCourses(w http.ResponseWriter, r *http.Request) {
 	courses := []Courses{
-		{"flutter", ImageToBase64("C:/Users/Ojas Gupta/Downloads/business.jpg")},
-		{"Hadoop", ImageToBase64("C:/Users/Ojas Gupta/Downloads/business.jpg")},
-		{"Hadoop", ImageToBase64("C:/Users/Ojas Gupta/Downloads/business.jpg")},
+		{"flutter", ImageToBase64("images/business.jpg")},
+		{"Hadoop", ImageToBase64("images/business.jpg")},
+		{"Hadoop", ImageToBase64("images/business.jpg")},
 	}
 	w.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(courses)
